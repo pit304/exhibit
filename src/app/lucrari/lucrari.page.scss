@@ -1,0 +1,11 @@
+.container {
+    height: 100%;
+    overflow: hidden; 
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .scroll {
+      overflow: auto;
+    }
+  }

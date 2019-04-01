@@ -1,1 +1,26 @@
+ion-text:focus {
+    outline: 0;
+}
 
+ion-header div:hover ion-label {
+    text-decoration: underline;
+}
+
+ion-tab-bar {
+    padding-bottom: 70px;
+    padding-left: 50%;
+    padding-right: 50%;
+}
+
+ion-tab-button {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+ion-tab-button:hover ion-label {
+    text-decoration: underline;
+}
+
+.tab-selected ion-label {
+    text-decoration: underline;
+}
