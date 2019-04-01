@@ -8,6 +8,15 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'tab1',
+        children: [
+          {
+            path: '',
+            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+          }
+        ]
+      },
+      {
         path: 'atelier',
         children: [
           {
@@ -30,7 +39,11 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../texte/texte.module#TextePageModule'
+            loadChildren: '../texts/texts.module#TextsPageModule'
+          },
+          {
+            path: ':textId',
+            loadChildren: '../texts/text-detail/text-detail.module#TextDetailPageModule'
           }
         ]
       },
