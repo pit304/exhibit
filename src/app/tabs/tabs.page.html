@@ -1,4 +1,4 @@
-<ion-tabs (ionTabsDidChange)="tabChanged($event)">
+<ion-tabs (ionTabsWillChange)="onTabsChange()">
   <ion-header no-border>
     <div margin-top text-center>
       <ion-label routerLink="/">exhibit arhitectura</ion-label>
@@ -13,7 +13,7 @@
         <ion-label>Lucrari</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="texte">
+      <ion-tab-button tab="texte" href="/tabs/texte">
         <ion-label>Texte</ion-label>
       </ion-tab-button>
     </ion-tab-bar>

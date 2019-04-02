@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, EventEmitter } from '@angular/core';
+import { IonTabs, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  tabChanged($ev) {
-    $ev.setRoot($ev.root);
+  constructor(private navCtrl: NavController) {}
+  @ViewChild(IonTabs) tabs: IonTabs;
+
+  onTabsChange() {
+    this.navCtrl.navigateRoot('/tabs/' + this.tabs.getSelected());
   }
 }
