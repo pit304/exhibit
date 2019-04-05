@@ -1,0 +1,20 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="4" size="4" text-center>
+          {{ project.reference }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset="4" size="4" text-center>
+        {{ project.title }}, {{ project.locationYear }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset="4" size="4">
+        <ion-img [src]="'assets/projects/main/proj' + project.id + '.jpg'">
+        </ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

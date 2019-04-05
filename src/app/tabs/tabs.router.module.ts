@@ -26,11 +26,15 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'lucrari',
+        path: 'proiecte',
         children: [
           {
             path: '',
-            loadChildren: '../lucrari/lucrari.module#LucrariPageModule'
+            loadChildren: '../projects/projects.module#ProjectsPageModule'
+          },
+          {
+            path: ':projectId',
+            loadChildren: '../projects/project-detail/project-detail.module#ProjectDetailPageModule'
           }
         ]
       },
