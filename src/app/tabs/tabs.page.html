@@ -1,20 +1,30 @@
 <ion-tabs (ionTabsWillChange)="onTabsChange()">
-  <ion-header no-border>
-    <div margin-top text-center>
-      <ion-label routerLink="/">exhibit arhitectura</ion-label>
-    </div>
-  </ion-header>
   <ion-tab-bar slot="top">
-      <ion-tab-button tab="atelier">
-        <ion-label>Atelier</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="proiecte">
-        <ion-label>Proiecte</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="texte">
-        <ion-label>Texte</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
+    <table>
+      <tr>
+        <td colspan="3">
+          <ion-tab-button tab="home">
+            <ion-label class="home">exhibit arhitectura</ion-label>
+          </ion-tab-button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <ion-tab-button tab="atelier">
+            <ion-label>Atelier</ion-label>
+          </ion-tab-button>
+        </td>
+        <td>
+          <ion-tab-button tab="proiecte">
+            <ion-label>Proiecte</ion-label>
+          </ion-tab-button>
+        </td>
+        <td>
+          <ion-tab-button tab="texte">
+            <ion-label>Texte</ion-label>
+          </ion-tab-button>
+        </td>
+      </tr>
+    </table>
+  </ion-tab-bar>
 </ion-tabs>
