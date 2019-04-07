@@ -19,7 +19,7 @@ export class TextDetailPage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('textId')) {
-        this.navCtrl.navigateBack('/tabs/texte');
+        this.navCtrl.navigateBack('/texte');
         return;
       }
       this.text = this.textService.getText(paramMap.get('textId'));

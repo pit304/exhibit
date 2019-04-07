@@ -19,7 +19,7 @@ export class ProjectDetailPage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('projectId')) {
-        this.navCtrl.navigateBack('/tabs/proiecte');
+        this.navCtrl.navigateBack('/proiecte');
         return;
       }
       this.project = this.projectService.getProject(paramMap.get('projectId'));

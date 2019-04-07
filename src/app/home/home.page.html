@@ -1,0 +1,9 @@
+<ion-content padding>
+  <ion-slides [options]="homeOptions">
+    <ion-slide *ngFor="let project of loadedProjects" [routerLink]="['/', 'tabs', 'proiecte', project.id]">
+      <ion-img
+        [src]="'assets/projects/main/proj' + project.id + '.jpg'"
+      ></ion-img>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

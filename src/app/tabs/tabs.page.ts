@@ -11,6 +11,6 @@ export class TabsPage {
   @ViewChild(IonTabs) tabs: IonTabs;
 
   onTabsChange() {
-    this.navCtrl.navigateRoot('/tabs/' + this.tabs.getSelected());
+    //this.navCtrl.navigateRoot('/tabs/' + this.tabs.getSelected());
   }
 }
