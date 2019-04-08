@@ -65,6 +65,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '/',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
     path: '',
     component: TabsPage,
     loadChildren: '../home/home.module#HomePageModule'
