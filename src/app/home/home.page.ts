@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Project } from '../projects/project.model';
 import { ProjectService } from '../projects/project.service';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +11,19 @@ import { ProjectService } from '../projects/project.service';
 export class HomePage implements OnInit {
 
   loadedProjects: Project[];
-  homeOptions = {
-    initialSlide: 0,
-    loop: true,
-    autoplay: 2000,
-    autoplayDisableOnInteraction: false
-  };
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
     this.loadedProjects = this.projectService.projects;
+  }
+
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+    slides.options.initialSlide = 0;
+    slides.options.autoplay = 5000;
+    slides.options.loop = true;
+    slides.options.autoplayDisableOnInteraction = false;
   }
 
 }
