@@ -9,6 +9,18 @@ import { IonSlides } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  slideOpts = {
+    loop: false,
+    effect: 'fade',
+    speed: 1000,
+    fade: {
+      crossFade: true
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    }
+  };
 
   loadedProjects: Project[];
 
@@ -20,10 +32,6 @@ export class HomePage implements OnInit {
 
   slidesDidLoad(slides: IonSlides) {
     slides.startAutoplay();
-    slides.options.initialSlide = 0;
-    slides.options.autoplay = 5000;
-    slides.options.loop = true;
-    slides.options.autoplayDisableOnInteraction = false;
   }
 
 }
