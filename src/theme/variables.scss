@@ -1,6 +1,8 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+@font-face { font-family: "Helvetica"; src: url("../assets/fonts/Helvetica.ttf"); }
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -76,11 +78,7 @@
   --ion-color-light-tint: #f5f6f9;
 
   /** font **/
-  --ion-font-family: "Helvetica";
-}
-
-ion-tab-bar {
-  --border: 0;
+  --ion-font-family: Helvetica, Arial, sans-serif;
 }
 
 ion-tab-button {
