@@ -8,39 +8,21 @@ export class ProjectService {
   private _projects: Project[] = [
     {
       id: '1',
-      reference: 'c16',
-      title: 'CST',
+      reference: 'blueResidence2',
+      title: 'Blue Residence 2',
       locationYear: 'tenero, switzerland, 2017'
     },
     {
       id: '2',
-      reference: 'n09',
-      title: 'z33',
+      reference: 'cattia',
+      title: 'CATTIA',
       locationYear: 'hasselt, belgium, 2011-2019',
     },
     {
       id: '3',
-      reference: 'n02',
-      title: 'casa due',
+      reference: 'sitei',
+      title: 'Sitei',
       locationYear: 'sorano, italy, 2007-2010'
-    },
-    {
-      id: '4',
-      reference: 'c09',
-      title: '16th Biennale di Venezia',
-      locationYear: 'freespace'
-    },
-    {
-      id: '5',
-      reference: 'c08',
-      title: 'atelier clerici',
-      locationYear: 'milano, italy, 2017'
-    },
-    {
-      id: '6',
-      reference: 'p08',
-      title: 'w33 handles',
-      locationYear: '2015-2018'
     }
   ];
 
