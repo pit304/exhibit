@@ -30,15 +30,28 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'texte',
+        path: 'publicatii',
         children: [
           {
             path: '',
-            loadChildren: '../texts/texts.module#TextsPageModule'
+            loadChildren: '../publications/publications.module#PublicationsPageModule'
           },
           {
-            path: ':textId',
-            loadChildren: '../texts/text-detail/text-detail.module#TextDetailPageModule'
+            path: ':publicationId',
+            loadChildren: '../publications/publication-detail/publication-detail.module#PublicationDetailPageModule'
+          }
+        ]
+      },
+      {
+        path: 'competitii',
+        children: [
+          {
+            path: '',
+            loadChildren: '../competitions/competitions.module#CompetitionsPageModule'
+          },
+          {
+            path: ':competitionId',
+            loadChildren: '../competitions/competition-detail/competition-detail.module#CompetitionDetailPageModule'
           }
         ]
       },
@@ -60,8 +73,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'texte',
-    redirectTo: '/tabs/texte',
+    path: 'publicatii',
+    redirectTo: '/tabs/publicatii',
+    pathMatch: 'full'
+  },
+  {
+    path: 'competitii',
+    redirectTo: '/tabs/competitii',
     pathMatch: 'full'
   },
   {

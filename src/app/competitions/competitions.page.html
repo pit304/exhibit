@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="4" size="4">
+        <div >
+          <ion-list lines="none">
+            <ion-item *ngFor="let competition of loadedCompetitions" [routerLink]="['/', 'tabs', 'competitii', competition.id]" >
+              <ion-label>{{ competition.title }}. {{ competition.locationYear }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

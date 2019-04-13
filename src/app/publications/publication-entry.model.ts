@@ -1,4 +1,4 @@
-export class TextEntry {
+export class PublicationEntry {
   constructor(
     public id: string,
     public title: string,

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { TextEntry } from './text-entry.model';
+import { CompetitionEntry } from './competition-entry.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TextService {
-  private _texts: TextEntry[] = [
+export class CompetitionService {
+  private _competitions: CompetitionEntry[] = [
     {
       id: '1',
       title: 'An atelier',
@@ -32,13 +32,13 @@ export class TextService {
     }
   ];
 
-  get texts() {
-    return [...this._texts];
+  get competitions() {
+    return [...this._competitions];
   }
 
-  getText(id: string) {
-    return {...this._texts.find(
-      text => text.id === id
+  getCompetition(id: string) {
+    return {...this._competitions.find(
+      competition => competition.id === id
     )};
   }
 }
