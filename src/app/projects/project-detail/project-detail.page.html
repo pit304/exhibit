@@ -1,19 +1,32 @@
-<ion-content padding>
+<ion-content padding scrollY="false">
   <ion-grid>
     <ion-row>
-      <ion-col offset="4" size="4" text-center>
+      <ion-col size="3" text-center>
           {{ project.reference }}
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col offset="4" size="4" text-center>
-        {{ project.title }}, {{ project.locationYear }}
+      <ion-col size="3" offset="1">
+        <ion-grid>
+          <ion-row *ngFor="let number of [1,2,3,4,5,6]">
+            <ion-col text-center>
+                <ion-img [src]="'assets/projects/' + project.reference + '/images/' + number + '.jpg'">
+                </ion-img>
+                <p>• {{ number }} •</p>
+                <p>{{ project.reference }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col offset="4" size="4">
-        <ion-img [src]="'assets/projects/' + project.reference + '/images/1.jpg'">
-        </ion-img>
+      <ion-col size="3" offset="1">
+        <ion-grid>
+          <ion-row *ngFor="let number of [1,2,3,4,5,6]">
+            <ion-col text-center>
+                <ion-img [src]="'assets/projects/' + project.reference + '/plans/' + number + '.jpg'">
+                </ion-img>
+                <p>• {{ number }} •</p>
+                <p>{{ project.reference }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-col>
     </ion-row>
   </ion-grid>
