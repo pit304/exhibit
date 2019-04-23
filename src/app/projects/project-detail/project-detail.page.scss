@@ -1,12 +1,12 @@
-div[scrollx=true],div[scrolly=true] {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  div[scrollx=true] {
-    overflow-x: auto;
-  }
-  
   div[scrolly=true] {
-    overflow-y: auto;
+    position: relative;
+    overflow: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    height: 80vh;
+  }
+
+  td {
+    padding: 30px;
   }
