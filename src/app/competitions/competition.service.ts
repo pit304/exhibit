@@ -8,27 +8,100 @@ export class CompetitionService {
   private _competitions: CompetitionEntry[] = [
     {
       id: '1',
-      title: 'An atelier',
-      locationYear: 'Hasselt, 2012',
-      text: 'In the east of Italy, from where I come, landscapes are plain and drowned in mist. \
-      There is a kind of loneliness in the way buildings stand in space, as for the trees. \
-      In the valley of Po river roads can flow straight for thirty or forty miles crossing plain chessboards of valleys and canals; everything is rarefied and so smooth that the eye can feel a sort of nostalgia for a little point raised up to look around. Nevertheless this vagueness offers the conditions to sharpen the perception of almost all the intangible elements that make this space, apparently undefined. \
-      In “Lezioni americane” Italo Calvino wrote, reflecting on Leopardi’s work, “The poet of the vague can only be the poet of precision”.'
+      text: 'Architecture Competition, 2019, 3rd Prize, Design of British \
+      Council book stand for Bookfest in Bucharest'
     },
     {
       id: '2',
-      title: 'Notes on cities and places',
-      locationYear: 'Denmark, 2014',
-      text: 'Denmark landscape was formed by ice. \
-      The line, on which laid the glacial deposits of the continent, bisects the Jutland peninsula and nowadays it still acts as threshold between the different landscapes of the country. To the west it is a plain of sand, clay and sand dunes along the coast; to the east, where the altitude is slightly higher, it is an undulated landscape of fertile plains, hills and woods, with an indented coastline, engraved by fjords that penetrate deep into: a peninsula, more than 500 mostly uninhabited islands, 7.314 km of coastline and a surface area of 43.000 square kilometres. \
-      Inhabited by sedentary since 500 BC, a thousand years after Denmark still appeared as a flat landscape dotted with huts, with essential and pragmatically utilitarian character, and fortifications with solid and precise geometries. From 500 seas and rivers were the real scene, where the Vikings dominated by technical mastery and ruthlessness: it is the time of great migrations toward England, France, Iceland and the Mediterranean, until Baghdad.'
+      text: 'Regional Architecture Festival A6, 2018, Nomination for \
+      park in Cristian and Concept for a Multifamily Building and \
+      for a Fire Station Building'
     },
     {
       id: '3',
-      title: 'Notes on cities and places',
-      locationYear: 'Paris, 2014',
-      text: 'The Roman city, Lutetia Parisiorum, was founded on the heights of the left bank of the Seine: an isolated chessboard with a 300 Roman foot was organized on a north-south axis and surrounded by swamps. \
-      Charles the Great preferred it to Aachen, and though the frantic kingdoms were meriting and cruising courts, the city was enlarged, occupying the right bank of the Seine slowly. It is under the reign of Philip II Augustus that a true kingdom capital is born. Philip, a crofter and captain of the armed forces against John Lackland; a political strategist and Machiavellian administrator, extends his kingdom from the Ile de France to about two-thirds of the entire French territory, which is governed by urban infrastructure works, fortifications and new founding cities (bastides) and through administrative ordinances.'
+      text: 'Regional Architecture Festival A6, 2016, 1st Prize in the \
+      housing section for project “House E” and Nomination in the \
+      housing section for project “House S”'
+    },
+    {
+      id: '4',
+      text: 'Regional Architecture Festival A6, 2016, 1st Prize in the \
+      office building section for project “Offices for Star East Pet” \
+      - Mies van der Rohe Nomination for project “House E”'
+    },
+    {
+      id: '5',
+      text: 'Regional Architecture Festival A5, 2012, Nomination in the \
+      Restoration section for project “Loft in Brașov”'
+    },
+    {
+      id: '6',
+      text: 'International Architecture Competition 2011, 1st Prize and \
+      assignation of the work. Redesign / Restoration of \
+      “Johannes Honterus” courtyard (the Black Church Courtyard), \
+      Brașov, together with ADNBA architecture office'
+    },
+    {
+      id: '7',
+      text: 'International Architecture Competition 2011, Mention. \
+      Design of Piața Universității, Bucharest (public space above \
+      the underground parking), Technical Project - together with \
+      ADNBA architecture office'
+    },
+    {
+      id: '8',
+      text: 'Regional Architecture Annual Bv-Cv-Hr, 2011, 1st Prize in \
+      the “Projects. Studies. Competitions” section for project \
+      VELUX Prototype Project, Brașov'
+    },
+    {
+      id: '9',
+      text: 'Regional Architecture Annual Bv-Cv-Hr, 2011, 1st Prize in \
+      the “Interior design” section for project HUMANITAS Bookstore, Iași'
+    },
+    {
+      id: '10',
+      text: 'Architecture Competition, 2011, 1st Prize and assignation \
+      of project Design of public space “Ciprian Porumbescu Statue” \
+      in Gh. park, Brașov'
+    },
+    {
+      id: '11',
+      text: 'Architecture Competition, 2011, 1st Prize and assignation \
+      of project Business Centre, Brașov, Romania, together with \
+      the SYAA office'
+    },
+    {
+      id: '12',
+      text: 'International Architecture Competition 2010, 2nd Prize ex-aequo, \
+      Book depository of “Lucian Blaga” Central University Library, Cluj-Napoca, \
+      together with EASTERNWORKS and BOZIN&SZEKELY ARCHITECTS'
+    },
+    {
+      id: '13',
+      text: 'National Architecture Biannual BAB 2010, Restoration section, \
+      1st Prize.For the project „Office of Brașov A.C. Evangelical Church”'
+    },
+    {
+      id: '14',
+      text: 'Regional Architecture Annual Bv-Cv-Hr 2009, 1st Prize. For projects: \
+      “Office of Brașov A.C. Evangelical Church” (prize of Restoration section) \
+      “Humanitas Bookstore Sibiu” (prize of Interior Design section) \
+      “House P” (prize of Architecture <1000sqm section)'
+    },
+    {
+      id: '15',
+      text: 'Regional Architecture Annual Bv-Cv-Hr 2008, 1st Prize. For project: \
+      Cubix Hotel, Brașov'
+    },
+    {
+      id: '16',
+      text: 'Regional Architecture Annual Bv-Cv-Hr 2007, 1st Prize. For projects: \
+      “House in Galați” (prize of Architecture <1000sqm section)'
+    },
+    {
+      id: '17',
+      text: '“Humanitas Bookstore Timișoara” (prize of Interior Design section)'
     }
   ];
 

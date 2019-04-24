@@ -48,10 +48,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../competitions/competitions.module#CompetitionsPageModule'
-          },
-          {
-            path: ':competitionId',
-            loadChildren: '../competitions/competition-detail/competition-detail.module#CompetitionDetailPageModule'
           }
         ]
       },
