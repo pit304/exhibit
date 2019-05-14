@@ -13,3 +13,28 @@
 :root, ion-text, ion-label {
     font-size: 14px;
 }
+
+$screen-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@each $keySize, $valueSize in $screen-breakpoints {
+    [hidden-#{$keySize}-down] {
+        @media (max-width: $valueSize) {
+            display: none;
+        }
+    }
+}
+
+
+@each $keySize, $valueSize in $screen-breakpoints {
+    [hidden-#{$keySize}-up] {
+        @media (min-width: $valueSize) {
+            display: none;
+        }
+    }
+}
