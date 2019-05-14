@@ -13,8 +13,10 @@ export class HomePage implements OnInit {
     loop: false,
     speed: 1000,
     autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
+      delay: 5000
+    },
+    fadeEffect: {
+      crossFade: true
     },
     on: {
       beforeInit() {
