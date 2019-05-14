@@ -20,11 +20,11 @@ ion-tab-button {
 }
 
 ion-tab-button ion-label {
-    font-size: 20px;
+    font-size: 17px;
 }
 
 ion-tab-button .home {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 ion-tab-button:hover ion-label {
@@ -33,4 +33,8 @@ ion-tab-button:hover ion-label {
 
 .tab-selected ion-label {
     text-decoration: underline;
+}
+
+ion-row {
+    flex-wrap: nowrap;
 }

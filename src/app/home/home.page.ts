@@ -13,7 +13,8 @@ export class HomePage implements OnInit {
     loop: false,
     speed: 1000,
     autoplay: {
-      delay: 5000
+      delay: 5000,
+      disableOnInteraction: false
     },
     fadeEffect: {
       crossFade: true
@@ -40,7 +41,9 @@ export class HomePage implements OnInit {
           const $slideEl = swiper.slides.eq(i);
           const offset$$1 = $slideEl[0].swiperSlideOffset;
           let tx = -offset$$1;
-          if (!swiper.params.virtualTranslate) tx -= swiper.translate;
+          if (!swiper.params.virtualTranslate) {
+            tx -= swiper.translate;
+          }
           let ty = 0;
           if (!swiper.isHorizontal()) {
             ty = tx;
@@ -63,8 +66,12 @@ export class HomePage implements OnInit {
         if (swiper.params.virtualTranslate && duration !== 0) {
           let eventTriggered = false;
           slides.transitionEnd(() => {
-            if (eventTriggered) return;
-            if (!swiper || swiper.destroyed) return;
+            if (eventTriggered) {
+              return;
+            }
+            if (!swiper || swiper.destroyed) {
+              return;
+            }
             eventTriggered = true;
             swiper.animating = false;
             const triggerEvents = ['webkitTransitionEnd', 'transitionend'];
