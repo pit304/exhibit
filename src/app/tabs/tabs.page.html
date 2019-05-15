@@ -1,4 +1,4 @@
-<ion-tabs (ionTabsWillChange)="onTabsChange()">
+<ion-tabs (ionTabsWillChange)="onTabsChange($event)">
   <ion-tab-bar slot="top">
     <ion-grid>
       <ion-row>
@@ -10,22 +10,22 @@
       </ion-row>
       <ion-row>
         <ion-col no-padding>
-          <ion-tab-button tab="atelier">
+          <ion-tab-button tab="atelier" [ngClass]="{'tab-selected': 'atelier' === selected}">
             <ion-label>Atelier</ion-label>
           </ion-tab-button>
         </ion-col>
         <ion-col no-padding>
-          <ion-tab-button tab="proiecte">
+          <ion-tab-button tab="proiecte" [ngClass]="{'tab-selected': 'proiecte' === selected}">
             <ion-label>Proiecte</ion-label>
           </ion-tab-button>
         </ion-col>
         <ion-col no-padding>
-          <ion-tab-button tab="publicatii">
+          <ion-tab-button tab="publicatii" [ngClass]="{'tab-selected': 'publicatii' === selected}">
             <ion-label>Publicatii</ion-label>
           </ion-tab-button>
         </ion-col>
         <ion-col no-padding>
-          <ion-tab-button tab="competitii">
+          <ion-tab-button tab="competitii" [ngClass]="{'tab-selected': 'competitii' === selected}">
             <ion-label>Competitii</ion-label>
           </ion-tab-button>
         </ion-col>

@@ -1,5 +1,5 @@
-import { Component, ViewChild, EventEmitter } from '@angular/core';
-import { IonTabs, NavController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { IonTabButton } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -7,10 +7,10 @@ import { IonTabs, NavController } from '@ionic/angular';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  constructor(private navCtrl: NavController) {}
-  @ViewChild(IonTabs) tabs: IonTabs;
+  constructor() {}
+  public selected: string = null;
 
-  onTabsChange() {
-    //this.navCtrl.navigateRoot('/tabs/' + this.tabs.getSelected());
+  onTabsChange(tab: IonTabButton) {
+    this.selected = tab.tab;
   }
 }
