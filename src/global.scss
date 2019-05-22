@@ -30,7 +30,6 @@ $screen-breakpoints: (
     }
 }
 
-
 @each $keySize, $valueSize in $screen-breakpoints {
     [hidden-#{$keySize}-up] {
         @media (min-width: $valueSize) {
