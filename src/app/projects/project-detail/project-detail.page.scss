@@ -1,12 +1,26 @@
-  div[scrolly=true] {
-    position: relative;
-    overflow: auto;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    height: 80vh;
-  }
+ion-col[scrolly=true] {
+  position: relative;
+  overflow: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  height: 80vh;
+}
 
-  td {
-    padding: 30px;
-  }
+ion-slide[scrolly=true] {
+  position: relative;
+  overflow: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  height: 60vh;
+}
+
+ion-slides {
+  width: 40vh;
+}
+
+div.swiper-pagination {
+  top:20px;
+  bottom:inherit;
+}

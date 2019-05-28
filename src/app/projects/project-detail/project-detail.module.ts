@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ProjectDetailPage } from './project-detail.page';
+import { ProjectTextComponent } from './project-text/project-text.component';
+import { ProjectImagesComponent } from './project-images/project-images.component';
+import { ProjectPlansComponent } from './project-plans/project-plans.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProjectDetailPage]
+  declarations: [ProjectDetailPage, ProjectTextComponent, ProjectImagesComponent, ProjectPlansComponent]
 })
 export class ProjectDetailPageModule {}

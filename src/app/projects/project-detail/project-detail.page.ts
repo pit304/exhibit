@@ -26,4 +26,26 @@ export class ProjectDetailPage implements OnInit {
     });
   }
 
+  slideOptsProgressbar = {
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'custom',
+        renderCustom: (swiper, current, total) => {
+            return this.customProgressBar(current, total);
+        }
+    }
+};
+
+private customProgressBar(current: number, total: number): string {
+    const ratio: number = current / total;
+
+    const progressBarStyle: string = 'style=\'transform: translate3d(0px, 0px, 0px) scaleX(' + ratio + ') scaleY(1); transition-duration: 300ms;\'';
+    const progressBar: string = '<span class=\'swiper-pagination-progressbar-fill\' ' + progressBarStyle + '></span>';
+
+    let progressBarContainer: string = '<div class=\'swiper-pagination-progressbar\' style=\'height: 4px; top: 6px; width: 100%;\'>';
+    progressBarContainer += progressBar;
+    progressBarContainer += '</span></div>';
+
+    return progressBarContainer;
+}
 }

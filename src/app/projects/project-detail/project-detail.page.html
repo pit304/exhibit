@@ -1,44 +1,25 @@
-
-<body>
-<table style="width:100%;">
-  <tr>
-    <td style="width:27%;">
-      <div scrolly="true">
-      <div *ngFor="let item of [1,2,3,4]">
-        <p *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
-        {{ project.reference }}
-      </p>
-    </div>
-      </div>
-    </td>
-    <td style="width:27%;">
-      <div scrolly="true">
+<ion-grid>
+  <ion-row>
+    <ion-col padding scrolly="true">
+      <app-project-text [project]="project"></app-project-text>
+    </ion-col>
+    <ion-col hidden-md-down padding scrolly="true">
+      <app-project-images [project]="project"></app-project-images>
+    </ion-col>
+    <ion-col hidden-md-down padding scrolly="true">
+      <app-project-plans [project]="project"></app-project-plans>
+    </ion-col>
+    <ion-col hidden-md-up>
       <ion-grid>
-        <ion-row *ngFor="let number of [1,2,3,4,5,6]">
-          <ion-col text-center>
-              <ion-img [src]="'assets/projects/' + project.reference + '/images/' + number + '.jpg'">
-              </ion-img>
-              <p>• {{ number }} •</p>
-              <p>{{ project.reference }}</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    </td>
-    <td style="width:27%;">
-      <div scrolly="true">
-      <ion-grid>
-        <ion-row *ngFor="let number of [1,2,3,4,5,6]">
-          <ion-col text-center>
-              <ion-img [src]="'assets/projects/' + project.reference + '/plans/' + number + '.jpg'">
-              </ion-img>
-              <p>• {{ number }} •</p>
-              <p>{{ project.reference }}</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    </td>
-  </tr>
-</table>
-</body>
+      <ion-slides pager="true"> <!--[options]="slideOptsProgressbar">-->
+        <ion-slide scrolly="true">
+          <app-project-images [project]="project"></app-project-images>
+        </ion-slide>
+        <ion-slide scrolly="true">
+          <app-project-plans [project]="project"></app-project-plans>
+        </ion-slide>
+      </ion-slides>
+    </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
