@@ -1,10 +1,10 @@
 export class Atelier {
   constructor(
-    public id: string,
+    public id: number,
     public atelier_text: string
   ) {}
 
-  public atelierBackup = `
+  static backup = `
     <b>exhibit</b> arhitectura<br/>
     40 Nicolae Bălcescu, 1st Floor<br/>
     Brașov, Romania<br/>

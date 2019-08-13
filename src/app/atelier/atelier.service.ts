@@ -11,19 +11,21 @@ export class AtelierService {
 
   constructor(private http: HttpClient) { }
 
-  private _ateliers = new BehaviorSubject<Atelier[]>([]);
+  private _atelier = new BehaviorSubject<Atelier>(new Atelier(0, Atelier.backup));
 
-  get ateliers() {
-    return this._ateliers.asObservable();
+  get atelier() {
+    return this._atelier.asObservable();
   }
 
   getAtelier(id: string) {
     return this.http.get<Atelier>(`http://localhost:8000/ws/atelier/${id}`);
   }
 
-  fetchAteliers() {
+  fetchAtelier() {
+    return this._atelier;
+    /*
     return this.http
-      .get<{[key: string]: Atelier }>(
+      .get<{[key: number]: Atelier }>(
         'http://localhost:8000/ws/atelier'
       )
       .pipe(
@@ -39,8 +41,8 @@ export class AtelierService {
           // return [];
         }),
         tap(places => {
-          this._ateliers.next(places);
+          this._atelier.next(places);
         })
-      );
+      );*/
   }
 }
