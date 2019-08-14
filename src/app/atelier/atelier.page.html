@@ -7,10 +7,10 @@
             <ion-item>
               <ion-spinner color="primary" *ngIf="isLoading" text-center></ion-spinner>
               <ion-text class="ion-text-justify" *ngIf="!isLoading && !loadedAtelier">
-                  {{ backupAtelier }}
+                  <div [innerHTML]="backupAtelier"></div>
               </ion-text>
               <ion-text class="ion-text-justify" *ngIf="!isLoading && loadedAtelier">
-                  {{ loadedAtelier.atelier_text }}
+                  <div [innerHTML]="loadedAtelier.atelier_text"></div>
               </ion-text>
             </ion-item>
           </ion-list>

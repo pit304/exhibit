@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Atelier } from './atelier.model';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
-import { take, map, tap, delay, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, EMPTY } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,27 +22,19 @@ export class AtelierService {
   }
 
   fetchAtelier() {
-    return this._atelier;
-    /*
     return this.http
-      .get<{[key: number]: Atelier }>(
+      .get(
         'http://localhost:8000/ws/atelier'
       )
       .pipe(
-        map(resData => {
-          const places = [];
-          for (const key in resData) {
-            if (resData.hasOwnProperty(key)) {
-              places.push(new Atelier(key,
-                resData[key].atelier_text));
-            }
-          }
-          return places;
-          // return [];
-        }),
-        tap(places => {
-          this._atelier.next(places);
-        })
-      );*/
+        tap(ateliers => {
+          console.log(ateliers);
+        }), catchError(this.handleError)
+      );
+  }
+
+  handleError(error) {
+    console.log(error);
+    return EMPTY;
   }
 }

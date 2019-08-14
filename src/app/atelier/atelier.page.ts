@@ -19,7 +19,12 @@ export class AtelierPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.atelierSub = this.atelierService.atelier.subscribe(atelier => {
-      this.loadedAtelier = atelier;
+      if (atelier) {
+        console.log('Here', atelier);
+        this.loadedAtelier = atelier;
+      } else {
+        this.loadedAtelier = new Atelier(0, Atelier.backup);
+      }
     });
   }
 
