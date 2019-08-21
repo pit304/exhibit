@@ -32,7 +32,11 @@ export class AtelierService {
       )
       .pipe(
         map(atelierData => {
-          return atelierData.results[0];
+          if (atelierData.results.length > 0) {
+            return atelierData.results[0];
+          } else {
+            throw new Error("No atelier data, using default");
+          }
         }),
         tap(atelier => {
           this._atelier.next(atelier);
