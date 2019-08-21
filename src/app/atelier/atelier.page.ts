@@ -11,7 +11,6 @@ import { AtelierService } from './atelier.service';
 export class AtelierPage implements OnInit, OnDestroy {
 
   loadedAtelier: Atelier;
-  backupAtelier = Atelier.backup;
   private atelierSub: Subscription;
   isLoading = false;
 
@@ -19,18 +18,13 @@ export class AtelierPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.atelierSub = this.atelierService.atelier.subscribe(atelier => {
-      if (atelier) {
-        console.log('Here', atelier);
         this.loadedAtelier = atelier;
-      } else {
-        this.loadedAtelier = new Atelier(0, Atelier.backup);
-      }
     });
   }
 
   ionViewWillEnter() {
     this.isLoading = true;
-    this.atelierService.fetchAtelier().subscribe(() => {
+    this.atelierService.fetchAtelier().subscribe(data => {
       this.isLoading = false;
     });
   }

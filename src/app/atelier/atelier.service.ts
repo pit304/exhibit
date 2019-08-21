@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Atelier } from './atelier.model';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, EMPTY } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { of, ReplaySubject, throwError } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
+
+interface AtelierData {
+  results: Atelier[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +15,7 @@ export class AtelierService {
 
   constructor(private http: HttpClient) { }
 
-  private _atelier = new BehaviorSubject<Atelier>(new Atelier(0, Atelier.backup));
+  private _atelier = new ReplaySubject<Atelier>();
 
   get atelier() {
     return this._atelier.asObservable();
@@ -23,18 +27,20 @@ export class AtelierService {
 
   fetchAtelier() {
     return this.http
-      .get(
+      .get<AtelierData>(
         'http://localhost:8000/ws/atelier'
       )
       .pipe(
-        tap(ateliers => {
-          console.log(ateliers);
-        }), catchError(this.handleError)
+        map(atelierData => {
+          return atelierData.results[0];
+        }),
+        tap(atelier => {
+          this._atelier.next(atelier);
+        }), catchError(err => {
+          console.log('HTTP error or no atelier: ' + err);  
+          this._atelier.next(new Atelier(0, Atelier.backup)); 
+          return of([]);   
+        })
       );
-  }
-
-  handleError(error) {
-    console.log(error);
-    return EMPTY;
   }
 }
