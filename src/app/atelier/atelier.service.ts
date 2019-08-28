@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Atelier } from './atelier.model';
 import { HttpClient } from '@angular/common/http';
-import { of, ReplaySubject, throwError } from 'rxjs';
+import { of, ReplaySubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 
 interface AtelierData {
@@ -21,10 +21,6 @@ export class AtelierService {
     return this._atelier.asObservable();
   }
 
-  getAtelier(id: string) {
-    return this.http.get<Atelier>(`http://localhost:8000/ws/atelier/${id}`);
-  }
-
   fetchAtelier() {
     return this.http
       .get<AtelierData>(
@@ -42,7 +38,7 @@ export class AtelierService {
           this._atelier.next(atelier);
         }), catchError(err => {
           console.log('HTTP error or no atelier: ' + err);  
-          this._atelier.next(new Atelier(0, Atelier.backup)); 
+          this._atelier.next(Atelier.backup); 
           return of([]);   
         })
       );

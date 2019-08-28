@@ -4,7 +4,7 @@ export class Atelier {
     public atelier_text: string
   ) {}
 
-  static backup = `
+  static backup = new Atelier(0, `
     <b>exhibit</b> arhitectura<br/>
     40 Nicolae Bălcescu, 1st Floor<br/>
     Brașov, Romania<br/>
@@ -17,5 +17,5 @@ export class Atelier {
     <br/>
     Our main field of activity is architecture design and the projects we have undertaken cover areas of specialty: new construc¬tions, interior design, exterior design / public spaces, restoration / reconversion, object design. Depending on the specific theme of the project and the client’s wish we collaborate with engineering companies or specialists and coordinate all the specialised design engineers involved (structure, installations etc.) to provide complete general design services.<br/>
     Our projects have been equally appreciated by clients, the end user, as well as the professional environment (the awards and publications our works have been mentioned in bear witness).<br/>
-  `;
+  `);
 }
