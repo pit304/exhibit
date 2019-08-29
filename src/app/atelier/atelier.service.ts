@@ -31,15 +31,15 @@ export class AtelierService {
           if (atelierData.results.length > 0) {
             return atelierData.results[0];
           } else {
-            throw new Error("No atelier data, using default");
+            throw new Error('No atelier data, using default');
           }
         }),
         tap(atelier => {
           this._atelier.next(atelier);
         }), catchError(err => {
-          console.log('HTTP error or no atelier: ' + err);  
-          this._atelier.next(Atelier.backup); 
-          return of([]);   
+          console.log('HTTP error or no atelier: ' + err);
+          this._atelier.next(Atelier.backup);
+          return of([]);
         })
       );
   }

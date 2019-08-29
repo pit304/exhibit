@@ -6,7 +6,7 @@ export class Competition {
     public competition_text: string
   ) {}
 
-  static backup : Competition[] = [
+  static backup: Competition[] = [
     {
       id: 1,
       title: 'Architecture Competition',
