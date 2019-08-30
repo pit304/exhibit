@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicationEntry } from '../publication-entry.model';
+import { Publication } from '../publication.model';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { PublicationService } from '../publication.service';
+import { PublicationsService } from '../publications.service';
 
 @Component({
   selector: 'app-publication-detail',
@@ -10,10 +10,10 @@ import { PublicationService } from '../publication.service';
   styleUrls: ['./publication-detail.page.scss'],
 })
 export class PublicationDetailPage implements OnInit {
-  publication: PublicationEntry;
+  publication: Publication;
 
   constructor(private route: ActivatedRoute,
-    private publicationService: PublicationService,
+    private publicationsService: PublicationsService,
     private navCtrl: NavController) { }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class PublicationDetailPage implements OnInit {
         this.navCtrl.navigateBack('/publicatii');
         return;
       }
-      this.publication = this.publicationService.getPublication(paramMap.get('publicationId'));
+      this.publication = this.publicationsService.getPublication(paramMap.get('publicationId'));
     });
   }
 

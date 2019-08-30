@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { PublicationEntry } from './publication-entry.model';
+import { Publication } from './publication.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PublicationService {
-  private _publications: PublicationEntry[] = [
+export class PublicationsService {
+  private _publications: Publication[] = [
     {
       id: '1',
       title: 'An atelier',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicationService } from './publication.service';
-import { PublicationEntry } from './publication-entry.model';
+import { PublicationsService } from './publications.service';
+import { Publication } from './publication.model';
 
 @Component({
   selector: 'app-publications',
@@ -8,12 +8,12 @@ import { PublicationEntry } from './publication-entry.model';
   styleUrls: ['./publications.page.scss'],
 })
 export class PublicationsPage implements OnInit {
-  loadedPublications: PublicationEntry[];
+  loadedPublications: Publication[];
 
-  constructor(private publicationService: PublicationService) { }
+  constructor(private publicationsService: PublicationsService) { }
 
   ngOnInit() {
-    this.loadedPublications = this.publicationService.publications;
+    this.loadedPublications = this.publicationsService.publications;
   }
 
 }
