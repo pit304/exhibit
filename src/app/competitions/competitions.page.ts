@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./competitions.page.scss'],
 })
 export class CompetitionsPage implements OnInit, OnDestroy {
-  
+
   loadedCompetitions: Competition[];
   private competitionsSub: Subscription;
   isLoading = false;

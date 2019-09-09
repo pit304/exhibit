@@ -24,22 +24,22 @@ export class CompetitionsService {
   fetchCompetitions() {
     return this.http
       .get<CompetitionData>(
-        'http://localhost:8000/ws/competitions?page=2'
+        'http://localhost:8000/ws/competitions'
       )
       .pipe(
         map(competitionData => {
           if (competitionData.results.length > 0) {
             return competitionData.results;
           } else {
-            throw new Error("No competition data, using default");
+            throw new Error('No competition data, using default');
           }
         }),
         tap(competitions => {
           this._competitions.next(competitions);
         }), catchError(err => {
-          console.log('HTTP error or no competitions: ' + err);  
-          this._competitions.next(Competition.backup); 
-          return of([]);   
+          console.log('HTTP error or no competitions: ' + err);
+          this._competitions.next(Competition.backup);
+          return of([]);
         })
       );
   }
