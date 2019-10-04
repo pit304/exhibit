@@ -5,7 +5,7 @@
         <div >
           <ion-list lines="none">
             <ion-item *ngFor="let project of loadedProjects" [routerLink]="['/', 'tabs', 'proiecte', project.id]" >
-              <div text-center>
+              <div class="ion-text-center">
               <p><ion-text>• {{ project.title }} •</ion-text></p>
               <p><ion-img [src]="'assets/projects/' + project.reference + '/images/1.jpg'"></ion-img></p>
               </div>

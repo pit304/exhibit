@@ -22,7 +22,9 @@ export class PublicationDetailPage implements OnInit {
         this.navCtrl.navigateBack('/publicatii');
         return;
       }
-      this.publication = this.publicationsService.getPublication(paramMap.get('publicationId'));
+      this.publicationsService.getPublication(paramMap.get('publicationId')).subscribe(publication => {
+        this.publication = publication[0]
+      });
     });
   }
 

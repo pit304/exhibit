@@ -4,7 +4,7 @@
       <ion-col offset="1" size="10" offset-sm="2" size-sm="8" offset-md="3" size-md="6" offset-lg="4" size-lg="4">
           <ion-list lines="none">
             <ion-item *ngFor="let competition of loadedCompetitions" >
-              <div class="ion-text-justify" margin>
+              <div class="ion-text-justify ion-margin">
                 <ion-text>{{ competition.title }}</ion-text>
                 <ion-text *ngIf="competition.year">, {{ competition.year }}</ion-text>
                 <ion-text>, {{ competition.competition_text }}</ion-text>

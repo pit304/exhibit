@@ -1,12 +1,11 @@
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-grid>
     <ion-row>
       <ion-col offset="1" size="10" offset-sm="2" size-sm="8" offset-md="3" size-md="6" offset-lg="4" size-lg="4">
-        <p>{{ publication.title }}</p>
+        <p>{{ publication.title }}, {{ publication.year }}</p>
         <p class="ion-text-justify">
           {{ publication.publication_text }}
         </p>
-        <p>{{ publication.year }}</p>
       </ion-col>
     </ion-row>
   </ion-grid>

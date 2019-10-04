@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Publication } from './publication.model';
 import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
-import { tap, map, catchError } from 'rxjs/operators';
+import { tap, map, filter, catchError } from 'rxjs/operators';
 
 interface PublicationData {
   results: Publication[];
@@ -21,11 +21,9 @@ export class PublicationsService {
   }
 
   getPublication(id: string) {
-    return this.publications.pipe(tap(publications => {
-      return publications.find(
-        publication => publication.id === id
-      );
-    }));
+    return this.publications.pipe(
+      map(publications => publications.filter(publication => publication.id === +id))
+    );
   }
 
   fetchPublications() {
