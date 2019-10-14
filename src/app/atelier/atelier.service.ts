@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Atelier } from './atelier.model';
 import { HttpClient } from '@angular/common/http';
-import { of, ReplaySubject } from 'rxjs';
+import { of, BehaviorSubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 
 interface AtelierData {
@@ -15,7 +15,7 @@ export class AtelierService {
 
   constructor(private http: HttpClient) { }
 
-  private _atelier = new ReplaySubject<Atelier>();
+  private _atelier = new BehaviorSubject<Atelier>(Atelier.backup);
 
   get atelier() {
     return this._atelier.asObservable();
@@ -39,7 +39,7 @@ export class AtelierService {
         }), catchError(err => {
           console.log('HTTP error or no atelier: ' + err);
           this._atelier.next(Atelier.backup);
-          return of([]);
+          return of();
         })
       );
   }
