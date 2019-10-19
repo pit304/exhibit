@@ -1,10 +1,10 @@
 <ion-grid>
   <ion-row *ngFor="let number of [1,2,3,4,5,6]">
     <ion-col text-center>
-        <ion-img [src]="'assets/projects/' + project.reference + '/images/' + number + '.jpg'">
+        <ion-img [src]="'assets/projects/' + project.id + '/images/' + number + '.jpg'">
         </ion-img>
         <p>• {{ number }} •</p>
-        <p>{{ project.reference }}</p>
+        <p>{{ project.project_title }}</p>
     </ion-col>
   </ion-row>
 </ion-grid>

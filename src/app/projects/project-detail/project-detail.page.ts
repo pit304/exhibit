@@ -22,7 +22,9 @@ export class ProjectDetailPage implements OnInit {
         this.navCtrl.navigateBack('/proiecte');
         return;
       }
-      this.project = this.projectService.getProject(paramMap.get('projectId'));
+      this.projectService.getProject(paramMap.get('projectId')).subscribe(project => {
+        this.project = project[0]
+      });
     });
   }
 

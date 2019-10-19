@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Project } from '../projects/project.model';
 import { ProjectService } from '../projects/project.service';
 import { IonSlides } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
+
   slidesOpts = {
     loop: false,
     speed: 1000,
@@ -85,11 +87,28 @@ export class HomePage implements OnInit {
   };
 
   loadedProjects: Project[];
-
+  private projectsSub: Subscription;
+  isLoading = false;
+  
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.loadedProjects = this.projectService.projects;
+    this.projectsSub = this.projectService.projects.subscribe(projects => {
+      this.loadedProjects = projects;
+    });
+  }
+
+  ionViewWillEnter() {
+    this.isLoading = true;
+    this.projectService.fetchProjects().subscribe(data => {
+      this.isLoading = false;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.projectsSub) {
+      this.projectsSub.unsubscribe();
+    }
   }
 
   slidesDidLoad(slides: IonSlides) {

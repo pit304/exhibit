@@ -2,7 +2,7 @@
   <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slidesOpts">
     <ion-slide *ngFor="let project of loadedProjects" [routerLink]="['/', 'tabs', 'proiecte', project.id]">
       <ion-img
-        [src]="'assets/projects/' + project.reference + '/images/1.jpg'"
+        [src]="'assets/projects/' + project.id + '/images/1.jpg'"
       ></ion-img>
     </ion-slide>
   </ion-slides>

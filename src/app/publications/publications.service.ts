@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Publication } from './publication.model';
 import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
-import { tap, map, filter, catchError } from 'rxjs/operators';
+import { tap, map, catchError } from 'rxjs/operators';
 
 interface PublicationData {
   results: Publication[];
