@@ -1,20 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProjectService } from '../project.service';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavController, AlertController } from '@ionic/angular';
 import { Project } from '../project.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.page.html',
   styleUrls: ['./project-detail.page.scss'],
 })
-export class ProjectDetailPage implements OnInit {
+export class ProjectDetailPage implements OnInit, OnDestroy {
   project: Project;
+  private projectSub: Subscription;
+  isLoading = false;
+
+  slideOptsProgressbar = {
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'custom',
+      renderCustom: (swiper, current, total) => {
+          return this.customProgressBar(current, total);
+      }
+    }
+  };
 
   constructor(private route: ActivatedRoute,
     private projectService: ProjectService,
-    private navCtrl: NavController) { }
+    private navCtrl: NavController,
+    private alertCtrl: AlertController,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
@@ -22,21 +37,36 @@ export class ProjectDetailPage implements OnInit {
         this.navCtrl.navigateBack('/proiecte');
         return;
       }
-      this.projectService.getProject(paramMap.get('projectId')).subscribe(project => {
-        this.project = project[0]
+      this.isLoading = true;
+      this.projectSub = this.projectService.getProject(paramMap.get('projectId'))
+      .subscribe(project => {
+        this.project = project;
+        this.isLoading = false;
+      }, error => {
+        const projectId = +paramMap.get('projectId');
+        if (projectId > 0 && projectId < 4) {
+          this.project = Project.backup[projectId];
+        } else {
+          this.alertCtrl.create({
+            header: 'An error occured!',
+            message: 'Could not load project.',
+            buttons: [{
+              text: 'Okay',
+              handler: () => {
+                this.router.navigate(['/proiecte']);
+              }
+            }]
+          }).then(alertEl => alertEl.present());
+        }
       });
     });
   }
 
-  slideOptsProgressbar = {
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'custom',
-        renderCustom: (swiper, current, total) => {
-            return this.customProgressBar(current, total);
-        }
+  ngOnDestroy() {
+    if (this.projectSub) {
+      this.projectSub.unsubscribe();
     }
-};
+  }
 
 private customProgressBar(current: number, total: number): string {
     const ratio: number = current / total;
@@ -44,7 +74,7 @@ private customProgressBar(current: number, total: number): string {
     const progressBarStyle: string = 'style=\'transform: translate3d(0px, 0px, 0px) scaleX(' + ratio + ') scaleY(1); transition-duration: 300ms;\'';
     const progressBar: string = '<span class=\'swiper-pagination-progressbar-fill\' ' + progressBarStyle + '></span>';
 
-    let progressBarContainer: string = '<div class=\'swiper-pagination-progressbar\' style=\'height: 4px; top: 6px; width: 100%;\'>';
+    let progressBarContainer = '<div class=\'swiper-pagination-progressbar\' style=\'height: 4px; top: 6px; width: 100%;\'>';
     progressBarContainer += progressBar;
     progressBarContainer += '</span></div>';
 

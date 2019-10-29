@@ -22,8 +22,18 @@ export class ProjectService {
   }
 
   getProject(id: string) {
-    return this.projects.pipe(
-      map(projects => projects.filter(project => project.id === +id))
+    return this.http.get<Project>(
+      `http://localhost:8000/ws/projects/${id}/`
+    )
+    .pipe(
+      map(project => {
+        return new Project(+id,
+              project.project_title,
+              project.project_text,
+              project.main_image,
+              project.images,
+              project.plans);
+      })
     );
   }
 

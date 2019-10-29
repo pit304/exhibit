@@ -1,12 +1,17 @@
 <ion-grid>
-  <ion-row>
-    <ion-col padding scrolly="true">
+  <ion-row *ngIf="isLoading">
+    <ion-col size-sm="6" offset-sm="3" no-padding text-center>
+      <ion-spinner color="primary"></ion-spinner>  
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!isLoading">
+    <ion-col class="ion-padding" scrolly="true">
       <app-project-text [project]="project"></app-project-text>
     </ion-col>
-    <ion-col hidden-md-down padding scrolly="true">
+    <ion-col hidden-md-down class="ion-padding" scrolly="true">
       <app-project-images [project]="project"></app-project-images>
     </ion-col>
-    <ion-col hidden-md-down padding scrolly="true">
+    <ion-col hidden-md-down class="ion-padding" scrolly="true">
       <app-project-plans [project]="project"></app-project-plans>
     </ion-col>
     <ion-col hidden-md-up>

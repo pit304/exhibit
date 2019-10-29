@@ -23,7 +23,7 @@ export class PublicationDetailPage implements OnInit {
         return;
       }
       this.publicationsService.getPublication(paramMap.get('publicationId')).subscribe(publication => {
-        this.publication = publication[0]
+        this.publication = publication[0];
       });
     });
   }
