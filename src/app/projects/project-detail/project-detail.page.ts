@@ -45,19 +45,12 @@ export class ProjectDetailPage implements OnInit, OnDestroy {
       }, error => {
         const projectId = +paramMap.get('projectId');
         if (projectId > 0 && projectId < 4) {
-          this.project = Project.backup[projectId];
+          this.project = Project.backup[3-projectId];
         } else {
-          this.alertCtrl.create({
-            header: 'An error occured!',
-            message: 'Could not load project.',
-            buttons: [{
-              text: 'Okay',
-              handler: () => {
-                this.router.navigate(['/proiecte']);
-              }
-            }]
-          }).then(alertEl => alertEl.present());
+          console.log('Could not load project ' + projectId);
+          this.router.navigate(['/proiecte']);
         }
+        this.isLoading = false;
       });
     });
   }
