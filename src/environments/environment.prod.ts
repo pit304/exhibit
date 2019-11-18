@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  djangoAddress: 'https://exhibit.petrencu.ro'
 };

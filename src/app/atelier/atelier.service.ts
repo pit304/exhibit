@@ -3,6 +3,7 @@ import { Atelier } from './atelier.model';
 import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 interface AtelierData {
   results: Atelier[];
@@ -24,7 +25,7 @@ export class AtelierService {
   fetchAtelier() {
     return this.http
       .get<AtelierData>(
-        'http://localhost:8000/ws/atelier'
+        environment.djangoAddress + '/ws/atelier'
       )
       .pipe(
         map(atelierData => {

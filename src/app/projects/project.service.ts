@@ -3,6 +3,7 @@ import { Project } from './project.model';
 import { of, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { tap, map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 interface ProjectData {
   results: Project[];
@@ -23,7 +24,7 @@ export class ProjectService {
 
   getProject(id: string) {
     return this.http.get<Project>(
-      `http://localhost:8000/ws/projects/${id}/`
+      environment.djangoAddress + `/ws/projects/${id}/`
     )
     .pipe(
       map(project => {
@@ -40,7 +41,7 @@ export class ProjectService {
   fetchProjects() {
     return this.http
       .get<ProjectData>(
-        'http://localhost:8000/ws/projects?active=true'
+        environment.djangoAddress + '/ws/projects?active=true'
       )
       .pipe(
         map(projectData => {

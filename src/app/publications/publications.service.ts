@@ -3,6 +3,7 @@ import { Publication } from './publication.model';
 import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 interface PublicationData {
   results: Publication[];
@@ -29,7 +30,7 @@ export class PublicationsService {
   fetchPublications() {
     return this.http
       .get<PublicationData>(
-        'http://localhost:8000/ws/publications'
+        environment.djangoAddress + '/ws/publications'
       )
       .pipe(
         map(publicationData => {

@@ -3,6 +3,7 @@ import { Competition } from './competition.model';
 import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 interface CompetitionData {
   results: Competition[];
@@ -24,7 +25,7 @@ export class CompetitionsService {
   fetchCompetitions() {
     return this.http
       .get<CompetitionData>(
-        'http://localhost:8000/ws/competitions'
+        environment.djangoAddress + '/ws/competitions'
       )
       .pipe(
         map(competitionData => {
