@@ -3,6 +3,7 @@ import { Project } from '../projects/project.model';
 import { ProjectService } from '../projects/project.service';
 import { IonSlides } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit, OnDestroy {
-
+  
+  djangoAddress = environment.djangoAddress;
   slidesOpts = {
     loop: false,
     speed: 1000,

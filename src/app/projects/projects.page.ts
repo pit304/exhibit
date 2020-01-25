@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Project } from './project.model';
 import { ProjectService } from './project.service';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-projects',
@@ -13,6 +14,7 @@ export class ProjectsPage implements OnInit, OnDestroy {
   loadedProjects: Project[];
   private projectsSub: Subscription;
   isLoading = false;
+  djangoAddress = environment.djangoAddress;
 
   constructor(private projectService: ProjectService) { }
 

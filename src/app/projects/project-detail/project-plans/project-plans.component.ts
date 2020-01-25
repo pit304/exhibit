@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../../project.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-project-plans',
@@ -8,6 +9,7 @@ import { Project } from '../../project.model';
 })
 export class ProjectPlansComponent implements OnInit {
   @Input() project: Project;
+  djangoAddress = environment.djangoAddress;
 
   constructor() { }
 

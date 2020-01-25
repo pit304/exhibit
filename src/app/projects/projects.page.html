@@ -9,7 +9,7 @@
               <p><ion-text>• {{ project.project_title }} •</ion-text></p>
               <p>
                 <ion-img *ngIf="project.backup" [src]="'assets/projects/' + project.id + '/images/' + project.main_image.id + '.jpg'"></ion-img>
-                <ion-img *ngIf="!project.backup" [src]="'http://localhost:8000' + project.main_image.url"></ion-img>
+                <ion-img *ngIf="!project.backup" [src]="djangoAddress + project.main_image.url"></ion-img>
               </p>
               </div>
             </ion-item>
