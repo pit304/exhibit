@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../atelier/atelier.module#AtelierPageModule'
+            loadChildren: () => import('../atelier/atelier.module').then(m => m.AtelierPageModule)
           }
         ]
       },
@@ -21,11 +21,11 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../projects/projects.module#ProjectsPageModule'
+            loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsPageModule)
           },
           {
             path: ':projectId',
-            loadChildren: '../projects/project-detail/project-detail.module#ProjectDetailPageModule'
+            loadChildren: () => import('../projects/project-detail/project-detail.module').then(m => m.ProjectDetailPageModule)
           }
         ]
       },
@@ -34,11 +34,11 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../publications/publications.module#PublicationsPageModule'
+            loadChildren: () => import('../publications/publications.module').then(m => m.PublicationsPageModule)
           },
           {
             path: ':publicationId',
-            loadChildren: '../publications/publication-detail/publication-detail.module#PublicationDetailPageModule'
+            loadChildren: () => import('../publications/publication-detail/publication-detail.module').then(m => m.PublicationDetailPageModule)
           }
         ]
       },
@@ -47,7 +47,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../competitions/competitions.module#CompetitionsPageModule'
+            loadChildren: () => import('../competitions/competitions.module').then(m => m.CompetitionsPageModule)
           }
         ]
       },
@@ -86,7 +86,7 @@ const routes: Routes = [
   {
     path: '',
     component: TabsPage,
-    loadChildren: '../home/home.module#HomePageModule'
+    loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
   }
 ];
 
