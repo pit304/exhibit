@@ -28,7 +28,6 @@ export class ProjectDetailPage implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute,
     private projectService: ProjectService,
     private navCtrl: NavController,
-    private alertCtrl: AlertController,
     private router: Router) { }
 
   ngOnInit() {
