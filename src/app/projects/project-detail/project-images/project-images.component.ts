@@ -22,7 +22,13 @@ export class ProjectImagesComponent implements OnInit {
     this.modalCtrl
       .create({
         component: ImageModalPage,
-        componentProps: { project: this.project, imageId: imageId }
+        componentProps: {
+          projectId: this.project.id,
+          images: this.project.images,
+          imageId: imageId,
+          backup: this.project.backup,
+          section: 'images'
+        }
       })
       .then(modalEl => {
         modalEl.present();

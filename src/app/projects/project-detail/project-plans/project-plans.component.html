@@ -1,10 +1,20 @@
 <ion-grid>
   <ion-row *ngFor="let plan of project.plans">
     <ion-col text-center>
-        <ion-img *ngIf="project.backup" [src]="'assets/projects/' + project.id + '/plans/' + plan.id + '.jpg'"></ion-img>
-        <ion-img *ngIf="!project.backup" [src]="djangoAddress + plan.url"></ion-img>
-        <p>• {{ plan.id }} •</p>
-        <p>{{ plan.title }}</p>
+      <ion-img
+        *ngIf="project.backup"
+        [src]="'assets/projects/' + project.id + '/plans/' + plan.id + '.jpg'"
+        tappable
+        (click)="openPreview(plan.id)"
+      ></ion-img>
+      <ion-img
+        *ngIf="!project.backup"
+        [src]="djangoAddress + plan.url"
+        tappable
+        (click)="openPreview(plan.id)"
+      ></ion-img>
+      <p>• {{ plan.id }} •</p>
+      <p>{{ plan.title }}</p>
     </ion-col>
   </ion-row>
 </ion-grid>

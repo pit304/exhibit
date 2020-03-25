@@ -16,11 +16,13 @@
   </ion-item>
 -->
   <ion-slides [options]="sliderOpts" #slider >
-    <ion-slide *ngFor="let image of project.images" (click)="close()">
+    <ion-slide *ngFor="let image of images" (click)="close()">
       <div class="swipper-zoom-container">
-        <img *ngIf="project.backup"
-          src="assets/projects/{{ project.id }}/images/{{ image.id }}.jpg" />
-        <img *ngIf="!project.backup"
+        <img *ngIf="backup && isImageSection"
+          src="assets/projects/{{ projectId }}/images/{{ image.id }}.jpg" />
+        <img *ngIf="backup && !isImageSection"
+          src="assets/projects/{{ projectId }}/plans/{{ image.id }}.jpg" />
+        <img *ngIf="!backup"
           src="{{ djangoAddress }} {{ image.url }}" />
       </div>
     </ion-slide>

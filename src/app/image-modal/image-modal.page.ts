@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
-import { Project } from '../projects/project.model';
+
+import { ProjectImage } from '../projects/project-image.model';
 
 @Component({
   selector: 'app-image-modal',
@@ -8,8 +9,11 @@ import { Project } from '../projects/project.model';
   styleUrls: ['./image-modal.page.scss'],
 })
 export class ImageModalPage implements OnInit {
-  project: Project;
+  images: ProjectImage[];
+  projectId: number;
   imageId: number;
+  backup: boolean;
+  isImageSection = true;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
   sliderOpts = {
     zoom: {
@@ -21,12 +25,15 @@ export class ImageModalPage implements OnInit {
   constructor(private navParams: NavParams, private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    this.project = this.navParams.get('project');
+    this.images = this.navParams.get('images');
     this.imageId = this.navParams.get('imageId');
+    this.backup = this.navParams.get('backup');
+    this.projectId = this.navParams.get('projectId');
+    this.isImageSection = this.navParams.get('section') === 'images';
   }
 
   zoom(zoomIn: boolean) {
-    let zoom = this.slider.nativeElement.swiper.zoom;
+    const zoom = this.slider.nativeElement.swiper.zoom;
     if (zoomIn) {
       zoom.in();
       console.log('Zooming in');
